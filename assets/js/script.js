@@ -8,15 +8,9 @@ var tasks = [];
 var loadTasks = function () {
     tasks = JSON.parse(localStorage.getItem("task"));
 
-    if (!tasks) {
-        tasks = {
-            newTask: []
-        };
-    }
-
-    $.each(tasks, function () {
-        console.log("load tasks");
-    });
+    // $.each(tasks, function () {
+    //     console.log("load tasks");
+    // });
 }
 
 var saveTasks = function() {
@@ -26,10 +20,16 @@ var saveTasks = function() {
 //saving the textbox
 $(".saveBtn").on("click", function ()  {
 
-    var newTask = $("textarea").val();
+    var newTask1 = $("#task1").val();
+    
+    if (!tasks) {
+        tasks = {
+            task1: []
+        };
+    }
 
-    tasks.push({
-        newTask
+    tasks.task1.push({
+        text: newTask1
     });
 
     saveTasks();
