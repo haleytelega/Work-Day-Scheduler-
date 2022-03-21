@@ -21,16 +21,14 @@ var saveTasks = function() {
 $(".saveBtn").on("click", function ()  {
 
     var newTask1 = $("#task1").val();
+    var newTask2 = $("#task2").val();
     
     if (!tasks) {
         tasks = {
-            task1: []
+            text: newTask1,
+            text: newTask2
         };
     }
-
-    tasks.task1.push({
-        text: newTask1
-    });
 
     saveTasks();
 
