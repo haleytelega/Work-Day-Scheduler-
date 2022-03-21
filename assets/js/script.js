@@ -18,18 +18,10 @@ var saveTasks = function() {
     };
 
 //saving the textbox
-$(".saveBtn").on("click", function ()  {
+$(".saveBtn").on("click", function (event)  {
 
-    var newTask1 = $("#task1").val();
-    var newTask2 = $("#task2").val();
-    
-    if (!tasks) {
-        tasks = {
-            text: newTask1,
-            text: newTask2
-        };
-    }
-
+    $("#task-9")[0].id
+    console.log(event.target.id)
     saveTasks();
 
     console.log("save was clicked");
