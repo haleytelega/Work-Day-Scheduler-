@@ -1,23 +1,40 @@
-// //getting current date in jumbotron
+var tasks = [];
+
+//getting current date in jumbotron
     var getCurrentDate = moment().format("dddd, MMMM, Do");
     console.log(getCurrentDate);
     document.getElementById("currentDay").innerHTML=getCurrentDate;
 
-//making text box clickale
-$(".task").on("click", function() {
-    var text = $(this).text().trim();
-    console.log("text area has been clicked");
+var loadTasks = function () {
+    tasks = JSON.parse(localStorage.getItem("task"));
 
-var textInput = $("<textarea>").val(text);
-    $(this).replaceWith(textInput);
+    if (!tasks) {
+        tasks = {
+            newTask: []
+        };
+    }
 
-});
+    $.each(tasks, function () {
+        console.log("load tasks");
+    });
+}
+
+var saveTasks = function() {
+        localStorage.setItem("task", JSON.stringify(tasks)); //Saves object in localStorage
+    };
 
 //saving the textbox
-$(".saveBtn").on("click", function () {
-    $(this).text($(this).text() == 'Save');
+$(".saveBtn").on("click", function ()  {
 
-    $(".save").text("save");
+    var newTask = $("textarea").val();
 
-    console.log("this saved");
+    tasks.push({
+        newTask
+    });
+
+    saveTasks();
+
+    console.log("save was clicked");
 });
+
+loadTasks();
