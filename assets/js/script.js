@@ -26,10 +26,10 @@ function getTime (taskEl) {
             $(taskEl).addClass("present");
         }
         if (moment().isAfter(time)){
-            $(taskEl).addClass("future")
+            $(taskEl).addClass("future");
         }
         else {
-            $(taskEl).addClass("past")
+            $(taskEl).addClass("past");
         }
     }
 }
@@ -45,5 +45,7 @@ $(".saveBtn").on("click", function ()  {
 
     console.log("save was clicked");
 });
+
+getTime();
 
 loadTasks();
