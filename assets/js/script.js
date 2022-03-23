@@ -13,19 +13,22 @@ var saveTasks = function() {
         localStorage.setItem("task", JSON.stringify(tasks)); //Saves object in localStorage
     };
 
-function getTime () {
-    var time = moment().set('hour', 9);
+function getTime (taskEl) {
+    var hour = $(taskEl).find("textarea").text().trim();
+    console.log(hour); 
 
-    var hour = document.getElementsByClassName(".hour");
+    var time = moment().set('hour', 9);
+    console.log(time);
+
 
     if (moment().isSame(time)) {
-        $(".hour").addClass("present");
+        $(taskEl).addClass("present");
     }
     if (moment().isAfter(time)){
-        $(".hour").addClass("future")
+        $(taskEl).addClass("future")
     }
     else {
-        $(".hour").addClass("past")
+        $(taskEl).addClass("past")
     }
 }
 //saving the textbox
