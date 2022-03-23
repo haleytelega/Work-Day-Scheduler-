@@ -22,10 +22,10 @@ function getTime (taskEl) {
 
     for(var i = 9; i <= 17; i++){
         var taskEl = document.getElementById([i]);
-        if (moment().isSame(time)) {
+        if (taskEl < time) {
             $(taskEl).addClass("present");
         }
-        if (moment().isAfter(time)){
+        else if (taskEl > time){
             $(taskEl).addClass("future");
         }
         else {
