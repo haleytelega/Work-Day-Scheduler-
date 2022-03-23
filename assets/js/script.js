@@ -7,22 +7,36 @@ var tasks = [];
 
 var loadTasks = function () {
     tasks = JSON.parse(localStorage.getItem("task"));
-
-    // $.each(tasks, function () {
-    //     console.log("load tasks");
-    // });
 }
 
 var saveTasks = function() {
         localStorage.setItem("task", JSON.stringify(tasks)); //Saves object in localStorage
     };
 
-//saving the textbox
-$(".saveBtn").on("click", function (event)  {
+function getTime () {
+    var time = moment().set('hour', 9);
 
-    $("#task-9")[0].id
-    console.log(event.target.id)
-    saveTasks();
+    var hour = document.getElementsByClassName(".hour");
+
+    if (moment().isSame(time)) {
+        $(".hour").addClass("present");
+    }
+    if (moment().isAfter(time)){
+        $(".hour").addClass("future")
+    }
+    else {
+        $(".hour").addClass("past")
+    }
+}
+//saving the textbox
+$(".saveBtn").on("click", function ()  {
+    // var taskText = $(this).closest(".task").val();
+
+    // tasks.push({
+    //     text: taskText
+    // });
+
+    // saveTasks();
 
     console.log("save was clicked");
 });
