@@ -17,18 +17,20 @@ function getTime (taskEl) {
     var hour = $(taskEl).find("textarea").text().trim();
     console.log(hour); 
 
-    var time = moment().set('hour', 9);
+    var time = moment().hours();
     console.log(time);
 
-
-    if (moment().isSame(time)) {
-        $(taskEl).addClass("present");
-    }
-    if (moment().isAfter(time)){
-        $(taskEl).addClass("future")
-    }
-    else {
-        $(taskEl).addClass("past")
+    for(var i = 9; i <= 17; i++){
+        var taskEl = document.getElementById([i]);
+        if (moment().isSame(time)) {
+            $(taskEl).addClass("present");
+        }
+        if (moment().isAfter(time)){
+            $(taskEl).addClass("future")
+        }
+        else {
+            $(taskEl).addClass("past")
+        }
     }
 }
 //saving the textbox
