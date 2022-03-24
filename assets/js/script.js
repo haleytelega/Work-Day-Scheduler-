@@ -5,13 +5,6 @@ var tasks = [];
     console.log(getCurrentDate);
     document.getElementById("currentDay").innerHTML=getCurrentDate;
 
-var loadTasks = function () {
-    tasks = JSON.parse(localStorage.getItem("task"));
-}
-
-var saveTasks = function() {
-        localStorage.setItem("task", JSON.stringify(tasks)); //Saves object in localStorage
-    };
 
 function getTime (taskEl) {
     var hour = $(taskEl).find("textarea").text().trim();
@@ -33,19 +26,20 @@ function getTime (taskEl) {
         }
     }
 }
+
+setInterval(getTime(), (1000 * 60) * 30);
+
+var saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks)); //Saves object in localStorage
+};
+
 //saving the textbox
 $(".saveBtn").on("click", function ()  {
-    // var taskText = $(this).closest(".task").val();
+    var task = $(".task").val();
+    var date = $("#hours").val();
 
-    // tasks.push({
-    //     text: taskText
-    // });
-
-    // saveTasks();
 
     console.log("save was clicked");
 });
 
 getTime();
-
-loadTasks();
