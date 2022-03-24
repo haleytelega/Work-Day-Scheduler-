@@ -13,10 +13,10 @@ function getTime () {
     for(var i = 9; i <= 17; i++){
         var taskEl = document.getElementById(i);
         console.log(taskEl);
-        if ( i > time) {
+        if ( i == time) {
             $(taskEl).addClass("present");
         }
-        else if (i < time){
+        else if (i > time){
             $(taskEl).addClass("future");
         }
         else {
