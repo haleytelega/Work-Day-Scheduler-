@@ -6,19 +6,17 @@ var tasks = [];
     document.getElementById("currentDay").innerHTML=getCurrentDate;
 
 
-function getTime (taskEl) {
-    var hour = $(taskEl).find("textarea").text().trim();
-    console.log(hour); 
-
+function getTime () {
     var time = moment().hours();
     console.log(time);
 
     for(var i = 9; i <= 17; i++){
-        var taskEl = document.getElementById([i]);
-        if (hour > time) {
+        var taskEl = document.getElementById(i);
+        console.log(taskEl);
+        if ( i > time) {
             $(taskEl).addClass("present");
         }
-        else if (hour < time){
+        else if (i < time){
             $(taskEl).addClass("future");
         }
         else {
