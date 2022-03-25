@@ -27,26 +27,16 @@ function getTime () {
 
 setInterval('refresh()', (1000 * 60) * 30);
 
-var saveTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks)); //Saves object in localStorage
-};
-
 //saving the textbox
 $(".saveBtn").on("click", function ()  {
-    var task = $(".task").val();
-    var tempTask =  
-    { text: task};
-    // var tempTask =  
-    // { text: task, date: date};
-    // console.log(tempTask);
-    tasks.push(tempTask);
-    // // console.log(task);
-    // // console.log(date);
-    // // console.log(tempTask);
-    // // console.log("save was clicked");
+    var taskText = $(this).siblings(".task").val();
+    var taskHour = $(this).parent().attr("id");
 
-    saveTasks();
-;
+    localStorage.setItem(taskHour, taskText);
+
 });
+
+//getItem from localStorage
+// var task1 = localStorage.getItem(taskHour, taskText);
 
 getTime();
