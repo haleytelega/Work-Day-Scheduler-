@@ -37,6 +37,14 @@ $(".saveBtn").on("click", function ()  {
 });
 
 //getItem from localStorage
-// var task1 = localStorage.getItem(taskHour, taskText);
+$("#hour-9 .task").val(localStorage.getItem("hour-9", "task"));
+$("#hour-10 .task").val(localStorage.getItem("hour-10", "task"));
+$("#hour-11 .task").val(localStorage.getItem("hour-11", "task"));
+$("#hour-12 .task").val(localStorage.getItem("hour-12", "task"));
+$("#hour-13 .task").val(localStorage.getItem("hour-13", "task"));
+$("#hour-14 .task").val(localStorage.getItem("hour-14", "task"));
+$("#hour-15 .task").val(localStorage.getItem("hour-15", "task"));
+$("#hour-16 .task").val(localStorage.getItem("hour-16", "taskk"));
+$("#hour-17 .task").val(localStorage.getItem("hour-17", "task"));
 
 getTime();
